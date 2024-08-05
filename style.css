@@ -1,0 +1,304 @@
+body {
+    font-family: "Times New Roman", Times, serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background: url('background.png') no-repeat center center fixed;
+    background-size: cover;
+    font-size: 16px; 
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 100%; 
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #007BFF;
+    padding: 10px 20px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    background: #0056b3;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9); 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.content {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: black;
+    font-size: 25px; /* Set font size for name */
+}
+
+h2 {
+    text-align: left;
+    color: black;
+    font-size: 16px; 
+    margin-bottom: 1px;
+    margin-top: 40px;
+}
+
+#resume-preview {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.resume-section {
+    margin-bottom: 20px;
+}
+
+.resume-section hr {
+    border: none;
+    border-top: 1px solid black;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.resume-entry {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    align-items: flex-start;
+}
+
+.left-column {
+    flex: 1;
+    padding-right: 10px;
+}
+
+.right-column {
+    text-align: right;
+    min-width: 200px;
+}
+
+.right-column p {
+    margin: 0;
+}
+
+.project-entry {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0px;
+}
+
+.project-entry h3 {
+    margin: 5px 0 2px 0; 
+}
+
+.project-entry ul {
+    margin: 2px 0 0 20px;
+    padding-left: 20px;
+}
+
+.project-entry p {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.resume-entry ul {
+    width: 100%;
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
+.resume-entry h3, .resume-entry p, .resume-entry em {
+    margin: 0;
+    padding: 0; 
+}
+
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-weight: bold;
+    padding: 0 10px;
+    color: #000000;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+#download-pdf, #create-another-resume-button {
+    display: block;
+    margin: 20px auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.chatbot-toggle-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-image: url('2.png');
+    background-size: cover;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000; 
+}
+
+.chatbot-container {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 400px;
+    height: 500px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    overflow: hidden; 
+    z-index: 1000;
+}
+
+.chatbot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px;
+}
+
+.chatbot-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column; 
+}
+
+.chatbot-input-container {
+    display: flex;
+    border-top: 1px solid #ddd;
+}
+
+.chatbot-input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
+.chatbot-send-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.user-message {
+    text-align: right;
+    margin: 10px 0;
+    color: white;
+    background-color: #007BFF;
+    padding: 8px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    max-width: 80%;
+    align-self: flex-end; 
+}
+
+.bot-message {
+    text-align: left;
+    margin: 10px 0;
+    color: black;
+    background-color: #e0e0e0;
+    padding: 8px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    max-width: 80%;
+    align-self: flex-start; 
+}

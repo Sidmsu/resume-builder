@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Resume Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#" id="home-nav">Home</a></li>
+        </ul>
+    </nav>
+    <div id="home-page" class="container">
+        <h1>Welcome to the Resume Builder</h1>
+        <p>Craft the perfect resume in minutes with our easy-to-use online builder. No design experience needed! 
+            Choose from a variety of professional templates, effortlessly input your skills and experiences, 
+            and let our tool create a stunning resume that highlights your career achievements. 
+            Impress potential employers and land your dream job with confidence. 
+        </p>
+        <button id="create-resume-button">Create a Resume</button>
+        <div id="saved-resume" class="hidden">
+            <h2>Saved Resume</h2>
+            <div id="resume-preview">
+                <!-- Live preview will be rendered here -->
+            </div>
+            <button id="download-pdf">Download as PDF</button>
+            <button id="create-another-resume-button">Create Another Resume</button>
+        </div>
+    </div>
+    <div id="resume-form-page" class="container hidden">
+        <h1>Online Resume Builder</h1>
+        <form id="resume-form">
+            <fieldset>
+                <legend>Personal Information</legend>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required>
+                <label for="linkedin">LinkedIn:</label>
+                <input type="text" id="linkedin" name="linkedin" required>
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </fieldset>
+            <fieldset id="education-section">
+                <legend>Education</legend>
+                <div class="education-entry">
+                    <label for="university">University:</label>
+                    <input type="text" class="university" required>
+                    <label for="degree">Major/Degree:</label>
+                    <input type="text" class="degree" required>
+                    <label for="edu-location">Location:</label>
+                    <input type="text" class="edu-location" required>
+                    <label for="graduation">Graduation Date:</label>
+                    <input type="text" class="graduation" required>
+                    <label for="edu-gpa">GPA:</label>
+                    <input type="text" class="edu-gpa" required>
+                    <label for="gpa">Organizations, Coursework, etc.:</label>
+                    <textarea class="gpa" required></textarea>
+                </div>
+                <button type="button" id="remove-education" style="background: #dc3545; color: white;">Remove Last Education</button>
+                <button type="button" id="add-education" style="background: #007BFF; color: white;">Add Education</button>
+            </fieldset>
+            <fieldset id="work-experience-section">
+                <legend>Work Experience</legend>
+                <div class="work-entry">
+                    <label for="company">Company:</label>
+                    <input type="text" class="company" required>
+                    <label for="position">Position:</label>
+                    <input type="text" class="position" required>
+                    <label for="work-location">Location:</label>
+                    <input type="text" class="location" required>
+                    <label for="dates">Dates:</label>
+                    <input type="text" class="dates" required>
+                    <label for="responsibilities">Responsibilities:</label>
+                    <textarea class="responsibilities" required></textarea>
+                </div>
+                <button type="button" id="remove-work-experience" style="background: #dc3545; color: white;">Remove Last Work Experience</button>
+                <button type="button" id="add-work-experience" style="background: #007BFF; color: white;">Add Work Experience</button>
+            </fieldset>
+            <fieldset id="leadership-experience-section">
+                <legend>Leadership Experience</legend>
+                <div class="leadership-entry">
+                    <label for="leadership-company">Company:</label>
+                    <input type="text" class="leadership-company" required>
+                    <label for="leadership-position">Position:</label>
+                    <input type="text" class="leadership-position" required>
+                    <label for="leadership-location">Location:</label>
+                    <input type="text" class="leadership-location" required>
+                    <label for="leadership-dates">Dates:</label>
+                    <input type="text" class="leadership-dates" required>
+                    <label for="leadership-responsibilities">Responsibilities:</label>
+                    <textarea class="leadership-responsibilities" required></textarea>
+                </div>
+                <button type="button" id="remove-leadership-experience" style="background: #dc3545; color: white;">Remove Last Leadership Experience</button>
+                <button type="button" id="add-leadership-experience" style="background: #007BFF; color: white;">Add Leadership Experience</button>
+            </fieldset>
+            <fieldset id="projects-section">
+                <legend>Projects</legend>
+                <div class="project-entry">
+                    <label for="project-title">Title:</label>
+                    <input type="text" class="project-title" required>
+                    <label for="project-description">Description:</label>
+                    <textarea class="project-description" required></textarea>
+                </div>
+                <button type="button" id="remove-project" style="background: #dc3545; color: white;">Remove Last Project</button>
+                <button type="button" id="add-project" style="background: #007BFF; color: white;">Add Project</button>
+            </fieldset>
+            <fieldset>
+                <legend>Skills & Interests</legend>
+                <label for="skills">Skills:</label>
+                <textarea id="skills" name="skills" required></textarea>
+                <label for="interests">Interests (Optional):</label>
+                <textarea id="interests" name="interests"></textarea>
+            </fieldset>
+            <button type="submit">Generate Resume</button>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+    <div class="chatbot-toggle-button" id="chatbot-toggle-button">
+    </div>
+    <div class="chatbot-container">
+        <div class="chatbot-header">
+            <span>ChatBot</span>
+            <button id="chatbot-close-button">x</button>
+        </div>
+        <div class="chatbot-messages" id="chatbot-messages"></div>
+        <div class="chatbot-input-container">
+            <input type="text" class="chatbot-input" id="chatbot-input" placeholder="Type your message here...">
+            <button class="chatbot-send-button" id="chatbot-send-button">Send</button>
+        </div>
+    </div>
+    
+</body>
+</html>
